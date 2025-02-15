@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Escape Wolf</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #gameCanvas {
+            display: block;
+            background: #333;
+            margin: auto;
+        }
+        #start-screen {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            z-index: 100;
+        }
+        #hud {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-family: Arial;
+            z-index: 50;
+        }
+        .hidden {
+            display: none;
+        }
+        #game-over-screen,
+        #victory-screen {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            z-index: 200;
+            min-width: 300px;
+        }
+        .end-screen h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .score-board {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .player-score {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .end-screen-buttons {
+            margin-top: 20px;
+        }
+        .end-screen-button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .restart-button {
+            background: #4CAF50;
+            color: white;
+        }
+        .exit-button {
+            background: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="start-screen">
+        <h2>Escape Wolf</h2>
+        <input type="text" id="player-name" placeholder="Seu nome">
+        <select id="game-mode">
+            <option value="collaborative">Colaborativo</option>
+            <option value="competitive">Competitivo</option>
+        </select>
+        <button id="start-button">Iniciar Jogo</button>
+    </div>
+    
+    <div id="assets" class="hidden">
+        <img id="bg-room" src="assets/images/room-bg.webp" />
+        <img id="player-sprite" src="assets/images/player-new-sprite.png" />
+        <img id="wolf-sprite" src="assets/images/wolf-sprite.webp" />
+        <img id="artifact-sprite" src="assets/images/artifact-sprite.webp" />
+    </div>
+    
+    <canvas id="gameCanvas"></canvas>
+    
+    <div id="hud">
+        <div id="players-online">Jogadores Online: 0</div>
+        <div id="player-stats">Vidas: 3 | Artefatos: 0/8 | Paralisadores: 3</div>
+    </div>
+
+    <div id="game-over-screen" class="end-screen">
+        <h2>Game Over!</h2>
+        <div class="score-board">
+            <div class="player-score">Artefatos coletados: <span class="artifacts-collected">0</span></div>
+            <div class="player-score">Tempo de jogo: <span class="time-played">0:00</span></div>
+            <div class="player-score">Jogadores online: <span class="players-count">0</span></div>
+        </div>
+        <div class="end-screen-buttons">
+            <button class="end-screen-button restart-button">Jogar Novamente</button>
+            <button class="end-screen-button exit-button">Sair</button>
+        </div>
+    </div>
+
+    <div id="victory-screen" class="end-screen">
+        <h2>Vitória!</h2>
+        <div class="score-board">
+            <div class="player-score">Artefatos coletados: <span class="artifacts-collected">0</span></div>
+            <div class="player-score">Tempo de jogo: <span class="time-played">0:00</span></div>
+            <div class="player-score">Jogadores online: <span class="players-count">0</span></div>
+        </div>
+        <div class="end-screen-buttons">
+            <button class="end-screen-button restart-button">Jogar Novamente</button>
+            <button class="end-screen-button exit-button">Sair</button>
+        </div>
+    </div>
+
+    <script src="js/sprite.js"></script>
+    <script src="js/room.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/wolf.js"></script>
+    <script src="js/artifact.js"></script>
+    <script src="js/websocket.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html> 
