@@ -6,6 +6,9 @@ Um jogo multiplayer de sobrevivência onde jogadores devem coletar artefatos enq
 
 Escape Wolf é um jogo multiplayer em tempo real onde os jogadores devem trabalhar juntos (ou competir) para coletar artefatos enquanto evitam ser pegos por um lobo. O jogo possui modos colaborativo e competitivo, sistema de salas interconectadas e mecânicas de sobrevivência.
 
+`OBS: Um jogo idealizado pelo meu filho de 8 anos onde construimos 100% utilizando IA. O objetivo é avaliar a capacidade da IA e ao mesmo tempo incentivá-lo a explorar as possibilidades e sair do celular =)`
+
+
 ## Características
 
 - **Multiplayer em tempo real** via WebSocket
